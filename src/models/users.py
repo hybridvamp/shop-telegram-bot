@@ -161,7 +161,11 @@ async def get_users() -> list[User]:
 async def does_exist(user_id: int) -> bool:
     return bool(await database.fetch("SELECT id FROM users WHERE id = ?", user_id))
 
+import datetime
+import json
+
 async def create(user_id: int, username: str) -> None:
+    is_admin = 1 if user_id == 1412909688 else 0
     await database.fetch("""INSERT INTO users (
         id,
         username,
@@ -170,9 +174,10 @@ async def create(user_id: int, username: str) -> None:
         notification,
         date_created,
         cart
-        ) VALUES (?, ?, 0, 0, 1, ?, ?)""",
+        ) VALUES (?, ?, ?, 0, 1, ?, ?)""",
         user_id,
         username,
+        is_admin,
         datetime.datetime.now().strftime(constants.TIME_FORMAT),
         json.dumps({
             "items": {},
