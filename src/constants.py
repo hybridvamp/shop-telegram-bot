@@ -8,7 +8,7 @@ import asyncio
 if not os.path.exists("config.json"):
     config.init()
     
-import localization.ru as language
+import localization.en as language
 # language = importlib.import_module(f"localization.{config['settings']['language']}")
 
 TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
