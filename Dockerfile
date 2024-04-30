@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-RUN curl -sSL https://install.python-poetry.org | python3 - \
-    && export PATH="/root/.local/bin:${PATH}" \
-    && poetry install
+RUN pip3 install -r requirements.txt
 
 CMD ["bash", "devserver.sh"]

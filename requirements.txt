@@ -1,0 +1,9 @@
+aiohttp==3.8.3
+aiogram==2.23.1
+aiosqlite==0.17.0
+asyncio==3.4.3
+matplotlib==3.6.2
+python-dotenv==0.21.0
+aioschedule==0.5.2
+setuptools==65.6.3
+captcha==0.4
